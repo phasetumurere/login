@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>[[${pageTitle}]]</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div class=" text-center">
+    <h1>[[${pageTitle}]]</h1>
+  </div>
+    <form method="post" th:action="@{/do_login}">
+      <input th:field="*{id}" type="hidden"/>
+      <h3 style="color: red; font-weight: bold"></h3>
+      <h3 style="color: red; font-weight: bold">
+      </h3>
+      <h3 style="color: blue; font-weight: bold">
+      </h3>
+      <div class="text-center alert alert-warning" th:if="${param.errors}">
+        <p> Invalid username or password</p>
+      </div>
+      <div class="text-center alert alert-success" th:if="${param.logout}">
+        <p> You have logged out</p>
+      </div>
+      <h1>Sign In</h1>
+      <span>Sign in with username and password</span>
+      <input name="username" placeholder="Username" type="text"/>
+      <input name="password" placeholder="Password" type="password"/>
+      <div>
+        <span style="color: Red; font-weight: bold"></span>
+      </div>
+      <button type="submit">Sign in</button>
+
+    </form>
+
+
+  </form>
+</div>
+<script type="text/javascript">
+    function cancelForm() {
+    window.location = "[[@{/users
+    }]]";
+    }
+</script>
+</body>
+</html>
